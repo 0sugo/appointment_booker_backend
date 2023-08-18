@@ -72,3 +72,4 @@ group :test do
 end
 
 gem 'rubocop'
+gem 'dotenv-rails', groups: %i[development test]
