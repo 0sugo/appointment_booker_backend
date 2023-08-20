@@ -8,7 +8,7 @@ module Api
       def create
         user = User.find_by(email: session_params[:email])
 
-        if user && user.valid_password?(session_params[:password])
+        if user&.valid_password?(session_params[:password])
           render json: { message: 'Login successful.', id: user.id, name: user.name }
         else
           render json: { message: 'Invalid email or password.' }, status: :unprocessable_entity
