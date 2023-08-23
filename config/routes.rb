@@ -5,8 +5,7 @@ Rails.application.routes.draw do
         registrations: 'api/v1/registrations',
         sessions: 'api/v1/sessions'
       }
-      resources :reservations only: %i[index create destroy]
+      resources :reservations,only: %i[index create destroy]
     end
   end
-
 end
