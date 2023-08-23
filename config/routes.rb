@@ -6,7 +6,7 @@ Rails.application.routes.draw do
         sessions: 'api/v1/sessions'
       }
       resources :doctors
-      resources :reservations only: %i[index create destroy]
+      resources :reservations, only: [:index, :create, :destroy]
     end
   end
 
