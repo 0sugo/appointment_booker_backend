@@ -1,7 +1,7 @@
 class Api::V1::ReservationsController < ApplicationController
   def index
     @reservations = Reservation.all
-    render json: { status: 'Success', message: 'Entry retrieved succesfully', data: @reservations }, status: :created
+    render json: { status: 'Success', message: 'Entry retrieved succesfully', data: @reservations }, status: :ok
   end
 
   def create
