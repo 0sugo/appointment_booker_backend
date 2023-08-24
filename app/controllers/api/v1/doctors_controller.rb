@@ -10,4 +10,20 @@ class Api::V1::DoctorsController < ApplicationController
   rescue ActiveRecord::RecordNotFound
     render json: { status: 'Not Found', message: 'Something went wrong' }, status: :not_found
   end
+
+  def create
+    @doctor = Doctor.new(doctor_params)
+
+    if @doctor.save
+      render json: {status: 'Success', message: 'Entry created successfully'}, status: :created
+    elsif
+      render json: { status: 'Failed', message: 'Failed to add entry' }, status: :bad_request
+    end
+  end
+
+  private
+
+  def doctor_params
+    params.require(:doctor).permit(:name, :specialisation, :city)
+  end
 end
