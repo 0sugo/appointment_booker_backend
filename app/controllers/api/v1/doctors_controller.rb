@@ -15,8 +15,8 @@ class Api::V1::DoctorsController < ApplicationController
     @doctor = Doctor.new(doctor_params)
 
     if @doctor.save
-      render json: {status: 'Success', message: 'Entry created successfully'}, status: :created
-    elsif
+      render json: { status: 'Success', message: 'Entry created successfully' }, status: :created
+    else
       render json: { status: 'Failed', message: 'Failed to add entry' }, status: :bad_request
     end
   end
