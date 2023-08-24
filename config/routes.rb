@@ -8,6 +8,8 @@ Rails.application.routes.draw do
       resources :users do
         resources :reservations, only: %i[index create destroy]
       end
+      resources :doctors, only: [:index, :show, :new, :create]
+      resources :reservations, only: [:index, :create, :destroy]
     end
   end
 end
