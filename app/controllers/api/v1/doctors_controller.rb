@@ -1,4 +1,6 @@
 class Api::V1::DoctorsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @doctors = Doctor.all
     render json: @doctors
@@ -17,7 +19,7 @@ class Api::V1::DoctorsController < ApplicationController
     if @doctor.save
       render json: { status: 'Success', message: 'Entry created successfully' }, status: :created
     else
-      render json: { status: 'Failed', message: 'Failed to add entry' }, status: :bad_request
+      render json: { status: 'Failed', message: 'Failed to add entry' }, status: :unprocessable_entity
     end
   end
 
