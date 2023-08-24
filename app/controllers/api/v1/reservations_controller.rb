@@ -1,11 +1,14 @@
 class Api::V1::ReservationsController < ApplicationController
+  # before_action :authenticate_api_v1_user!
   def index
-    @reservations = Reservation.all
+    user = User.find(params[:user_id])
+    @reservations = user.reservations
     render json: { status: 'Success', message: 'Entry retrieved succesfully', data: @reservations }, status: :ok
   end
 
   def create
-    @reservation = Reservation.new(reservation_params)
+    user = User.find(params[:user_id])
+    @reservation = user.reservations.build(reservation_params)
 
     if @reservation.save
       render json: { status: 'Success', message: 'Entry created succesfully' }, status: :created
