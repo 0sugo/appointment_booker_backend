@@ -5,9 +5,10 @@ Rails.application.routes.draw do
         registrations: 'api/v1/registrations',
         sessions: 'api/v1/sessions'
       }
-      resources :doctors, only: [:index, :show, :create]
-      resources :reservations, only: [:index, :create, :destroy]
+      resources :users do
+        resources :reservations, only: %i[index create destroy]
+      end
+      resources :doctors, only: [:index, :show, :new, :create]
     end
   end
-
 end
