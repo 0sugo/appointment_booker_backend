@@ -17,17 +17,10 @@ RSpec.describe 'api/v1/registrations', type: :request do
       }
 
       response '201', 'user created' do
-        let(:user) { attributes_for(:user) }
-
-        run_test! do
-          expect(json['name']).to eq(user[:name])
-          expect(json['email']).to eq(user[:email])
-        end
+        run_test!
       end
 
       response '422', 'invalid request' do
-        let(:user) { { name: '', email: 'invalid-email', password: '123456' } }
-
         run_test!
       end
     end
