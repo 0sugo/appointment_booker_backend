@@ -1,0 +1,57 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/doctors":
+    get:
+      summary: Retrieves a list of doctors
+      tags:
+      - Doctors
+      parameters:
+      - name: city
+        in: query
+        description: Filter doctors by city
+        schema:
+          type: string
+      - name: specialisation
+        in: query
+        description: Filter doctors by specialisation
+        schema:
+          type: string
+      responses:
+        '200':
+          description: doctors found
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+                    specialisation:
+                      type: string
+                    city:
+                      type: string
+            application/xml:
+              schema:
+                type: array
+                items:
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+                    specialisation:
+                      type: string
+                    city:
+                      type: string
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com
