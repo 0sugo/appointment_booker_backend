@@ -24,6 +24,6 @@ class Api::V1::DoctorsController < ApplicationController
   private
 
   def doctor_params
-    params.require(:doctor).permit(:name, :specialisation, :city)
+    params.require(:doctor).permit(:name, :specialisation, :city, :price, :duration)
   end
 end
