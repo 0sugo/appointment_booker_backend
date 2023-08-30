@@ -67,6 +67,68 @@ paths:
               - email
               - password
               - password_confirmation
+  "/api/v1/users/{user_id}/reservations":
+    parameters:
+    - name: user_id
+      in: path
+      required: true
+      description: User ID
+      schema:
+        type: integer
+    get:
+      summary: Retrieve user reservations
+      tags:
+      - Reservations
+      responses:
+        '200':
+          description: reservations retrieved
+    post:
+      summary: Create a new reservation
+      tags:
+      - Reservations
+      parameters: []
+      responses:
+        '201':
+          description: reservation created
+        '400':
+          description: invalid reservation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: integer
+                doctor_id:
+                  type: integer
+                city:
+                  type: string
+                date:
+                  type: string
+                  format: date
+              required:
+              - user_id
+              - doctor_id
+              - city
+              - date
+  "/api/v1/reservations/{id}":
+    parameters:
+    - name: id
+      in: path
+      required: true
+      description: Reservation ID
+      schema:
+        type: integer
+    delete:
+      summary: Delete a reservation
+      tags:
+      - Reservations
+      responses:
+        '200':
+          description: reservation deleted
+        '400':
+          description: deletion failed
   "/api/v1/users/sign_in":
     post:
       summary: Sign in a user

@@ -17,9 +17,9 @@ RSpec.describe 'api/doctors', type: :request do
                    id: { type: :integer },
                    name: { type: :string },
                    specialisation: { type: :string },
-                   city: { type: :string },
+                   city: { type: :string }
                    # Include other properties of the Doctor model here
-                 },
+                 }
                }
 
         run_test!
