@@ -67,6 +67,30 @@ paths:
               - email
               - password
               - password_confirmation
+  "/api/v1/users/sign_in":
+    post:
+      summary: Sign in a user
+      tags:
+      - Sessions
+      parameters: []
+      responses:
+        '200':
+          description: login successful
+        '422':
+          description: invalid login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+              required:
+              - email
+              - password
 servers:
 - url: https://{defaultHost}
   variables:
