@@ -1,10 +1,10 @@
-# Doctor_reservation_back_end
+# Doctor_appointment_reservation_back_end
 
 <a name="readme-top"></a>
 
 # 📗 Table of Contents
 
-- [Doctor\_reservation\_back\_end](#doctor_reservation_back_end)
+- [Doctor\_appointment\_reservation\_back\_end](#doctor_appointment_reservation_back_end)
 - [📗 Table of Contents](#-table-of-contents)
 - [📖 \[Appointment\_booker\_back\_end\] ](#-appointment_booker_back_end-)
   - [Link to the front-end repo](#link-to-the-front-end-repo)
