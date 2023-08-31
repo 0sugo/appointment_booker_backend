@@ -1,11 +1,13 @@
 example_id                              | status | run_time        |
 --------------------------------------- | ------ | --------------- |
-./spec/model/doctor_spec.rb[1:1:1]      | passed | 0.084 seconds   |
-./spec/model/doctor_spec.rb[1:2:1]      | passed | 0.00586 seconds |
-./spec/model/doctor_spec.rb[1:2:2]      | passed | 0.01122 seconds |
-./spec/model/reservation_spec.rb[1:1:1] | passed | 0.00167 seconds |
-./spec/model/reservation_spec.rb[1:2:1] | passed | 0.08577 seconds |
-./spec/model/reservation_spec.rb[1:2:2] | passed | 0.00173 seconds |
-./spec/model/user_spec.rb[1:1]          | passed | 0.08967 seconds |
-./spec/model/user_spec.rb[1:2:1]        | passed | 0.00565 seconds |
-./spec/model/user_spec.rb[1:2:2]        | passed | 0.10608 seconds |
+./spec/model/doctor_spec.rb[1:1:1]      | passed | 0.00717 seconds |
+./spec/model/doctor_spec.rb[1:2:1]      | passed | 0.0722 seconds  |
+./spec/model/doctor_spec.rb[1:2:2]      | passed | 0.00673 seconds |
+./spec/model/reservation_spec.rb[1:1:1] | passed | 0.00314 seconds |
+./spec/model/reservation_spec.rb[1:2:1] | passed | 0.0025 seconds  |
+./spec/model/reservation_spec.rb[1:2:2] | passed | 0.00227 seconds |
+./spec/model/user_spec.rb[1:1]          | failed | 0.05397 seconds |
+./spec/model/user_spec.rb[1:2:1]        | passed | 0.00335 seconds |
+./spec/model/user_spec.rb[1:2:2]        | passed | 0.01232 seconds |
+./spec/requests/doctors_spec.rb[1:1:1]  | passed | 0.01008 seconds |
+./spec/requests/doctors_spec.rb[1:1:2]  | passed | 0.11219 seconds |
