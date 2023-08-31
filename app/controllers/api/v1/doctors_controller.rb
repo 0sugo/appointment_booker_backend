@@ -21,6 +21,16 @@ class Api::V1::DoctorsController < ApplicationController
     end
   end
 
+  def destroy
+    @doctor = Doctor.find(params[:id])
+
+    if @doctor.destroy
+      render json: { status: 'Success', message: 'Record deleted sucessfully' }, status: :ok
+    else
+      render json: { status: 'Failed', message: 'Failed to deleted entry' }, status: :bad_request
+    end
+  end
+  
   private
 
   def doctor_params
