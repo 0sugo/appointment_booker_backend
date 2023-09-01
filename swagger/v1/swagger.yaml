@@ -1,0 +1,186 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/doctors":
+    get:
+      summary: Retrieves a list of doctors
+      tags:
+      - Doctors
+      parameters:
+      - name: Name
+        in: query
+        description: Filter doctors by name
+        schema:
+          type: string
+      - name: city
+        in: query
+        description: Filter doctors by city
+        schema:
+          type: string
+      - name: specialisation
+        in: query
+        description: Filter doctors by specialisation
+        schema:
+          type: string
+      - name: price
+        in: query
+        description: Filter doctors by price
+        schema:
+          type: integer
+      - name: duration
+        in: query
+        description: Filter doctors by duration
+        schema:
+          type: string
+      - name: image_url
+        in: query
+        description: Filter doctors by image_url
+        schema:
+          type: string
+      responses:
+        '200':
+          description: doctors found
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+                    specialisation:
+                      type: string
+                    city:
+                      type: string
+                    price:
+                      type: integer
+                    duration:
+                      type: string
+                    image_url:
+                      type: string
+  "/api/v1/users":
+    post:
+      summary: Create a new user
+      tags:
+      - Users
+      parameters: []
+      responses:
+        '201':
+          description: user created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                password:
+                  type: string
+                password_confirmation:
+                  type: string
+              required:
+              - name
+              - email
+              - password
+              - password_confirmation
+  "/api/v1/users/{user_id}/reservations":
+    parameters:
+    - name: user_id
+      in: path
+      required: true
+      description: User ID
+      schema:
+        type: integer
+    get:
+      summary: Retrieve user reservations
+      tags:
+      - Reservations
+      responses:
+        '200':
+          description: reservations retrieved
+    post:
+      summary: Create a new reservation
+      tags:
+      - Reservations
+      parameters: []
+      responses:
+        '201':
+          description: reservation created
+        '400':
+          description: invalid reservation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: integer
+                doctor_id:
+                  type: integer
+                city:
+                  type: string
+                date:
+                  type: string
+                  format: date
+              required:
+              - user_id
+              - doctor_id
+              - city
+              - date
+  "/api/v1/reservations/{id}":
+    parameters:
+    - name: id
+      in: path
+      required: true
+      description: Reservation ID
+      schema:
+        type: integer
+    delete:
+      summary: Delete a reservation
+      tags:
+      - Reservations
+      responses:
+        '200':
+          description: reservation deleted
+        '400':
+          description: deletion failed
+  "/api/v1/users/sign_in":
+    post:
+      summary: Sign in a user
+      tags:
+      - Sessions
+      parameters: []
+      responses:
+        '200':
+          description: login successful
+        '422':
+          description: invalid login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+              required:
+              - email
+              - password
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com

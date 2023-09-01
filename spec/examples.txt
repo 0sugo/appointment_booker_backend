@@ -1,0 +1,15 @@
+example_id                                  | status | run_time        |
+------------------------------------------- | ------ | --------------- |
+./spec/model/doctor_spec.rb[1:1:1]          | passed | 0.08669 seconds |
+./spec/model/doctor_spec.rb[1:2:1]          | passed | 0.00333 seconds |
+./spec/model/doctor_spec.rb[1:2:2]          | passed | 0.00237 seconds |
+./spec/model/reservation_spec.rb[1:1:1]     | failed | 0.00001 seconds |
+./spec/model/reservation_spec.rb[1:2:1]     | failed | 0.00001 seconds |
+./spec/model/reservation_spec.rb[1:2:2]     | failed | 0.00001 seconds |
+./spec/model/user_spec.rb[1:1]              | passed | 0.06025 seconds |
+./spec/model/user_spec.rb[1:2:1]            | passed | 0.00116 seconds |
+./spec/model/user_spec.rb[1:2:2]            | passed | 0.00157 seconds |
+./spec/requests/doctors_spec.rb[1:1:1]      | failed | 0.00001 seconds |
+./spec/requests/doctors_spec.rb[1:1:2]      | failed | 0.00001 seconds |
+./spec/requests/reservations_spec.rb[1:1:1] | failed | 0.00003 seconds |
+./spec/requests/reservations_spec.rb[1:1:2] | failed | 0.00001 seconds |
